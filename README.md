@@ -10,11 +10,15 @@ First I set the SPL to about 90db. This is a K-Horn and needs to breathe. This l
 ![alt text](<Images/Dec 1 2 UL5 Blank 92db 20-500Hz.jpg>)
  Dec 1 2 UL5 Blank Bass 20-500Hz 92db.jpg
 
-
+The red trace is the SPL and the peaks at 32Hz and 43Hz are room resonances. The peak at 140Hz is a design quirk of the folded horn.
 
 This procedure is repeated for the mid and hi, altering the frequency sweep to 200-5,000 Hz for mid and 2,000 to 20,000 Hz for hi and unmuting the appropriate "destination" channel in the Mixer. In my setup with the Motu Ultralight Mk5, bass is destination 2 & 3, mid 4 & 5 and hi 6 & 7, even numbers are the Left channel, odd numbers are the Right channel. After changing the unmuted destination, don't forget to "Apply to DSP".
  
-This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to Bass being an 8ohm and mid & hi 16ohm and on a different amplifier to the bass. Easy to flatten in a DSP, good luck in a passive XO.
+
+
+This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to differing driver sensitivity and  different amplifiers. Easy to flatten in a DSP, good luck in a passive XO.
+![alt text](<Images/Dec 1 Bass Mid Hi Raw.jpg>)
+
 
 A note about naming REW files. 
 First off, there will be a lot of measurement files. The file name for the Bass measurement above is Dec 1 2 UL5 Blank 92db 20-500Hz RAW.mdat, a descriptor (rather than just an identifier) containing the measurement session date, measurement number in the session, CamillaDSP config identifier and measurement settings.  I keep an A4 note book where I write out what the measuring session is trying to achieve and the variables I am testing - new filters, different XO cut offs, rePhase Phase Fixes etc. and make a note of each measurement so that the file from REW can be related to a particular measurement session.
