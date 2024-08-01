@@ -1,7 +1,7 @@
 # CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
-1. Measure drivers with REW and useg REW EQ to flatten the SPL creating IIR (PEQ) filters for each driver, then import the PEQs into CamillaDSP and measure the results.
+## 1. Measure drivers with REW and useg REW EQ to flatten the SPL creating IIR (PEQ) filters for each driver, then import the PEQs into CamillaDSP and measure the results.
 
-###REW SPL measuring.
+### REW SPL measuring.
 
 First I set the SPL to about 90db. This is a K-Horn and needs to breathe. This level is also good to find various room rattles and stop them before they interfere with the measurements.
 
@@ -20,13 +20,13 @@ This graph shows the three drivers raw measurement at the same volume setting. T
 ![alt text](<Images/Dec 1 Bass Mid Hi Raw.jpg>)
 
 
-###A note about naming REW files.
+### A note about naming REW files.
 
 First off, there will be a lot of measurement files. The file name for the Bass measurement above is Dec 1 2 UL5 Blank 92db 20-500Hz RAW.mdat, a descriptor (rather than just an identifier) containing the measurement session date, measurement number in the session, CamillaDSP config identifier and measurement settings.  I keep an A4 note book where I write out what the measuring session is trying to achieve and the variables I am testing - new filters, different XO cut offs, rePhase Phase Fixes etc. and make a note of each measurement so that the file from REW can be related to a particular measurement session.
 I have a folder called REW Measurements where I keep measurements etc filed and retrieveable.
  
 
-###Calculate EQ and save EQ filters.
+### Calculate EQ and save EQ filters.
 
 In REW with the Bass measurement displayed, click the EQ tab to display the EQ function screen, I usually click the "Fit to Data" box (top of screen, 4 arrows) and then work down the Target Settings to set the Target Level (I normally click "Calculate target level from response", then in the Filter Tasks set the range leaving the Boost at default, and set the Flatness Target.
 Then click the "Calculate target level from response" to generate the filters. Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name. Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog tol save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
