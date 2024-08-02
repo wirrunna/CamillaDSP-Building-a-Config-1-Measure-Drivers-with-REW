@@ -1,18 +1,18 @@
 # CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
-## 1. Measure drivers with REW and useg REW EQ to flatten the SPL creating IIR (PEQ) filters for each driver, then import the PEQs into CamillaDSP and measure the results.
+## 1. Measure drivers with REW and useg REW EQ to flatten the SPL creating Biquad (IIR) filters for each driver, then import the BIQUADs into CamillaDSP and measure the results.
 
 ### REW SPL measuring.
 
 First I set the SPL to about 90db. This is a K-Horn and needs to breathe. This level is also good to find various room rattles and stop them before they interfere with the measurements.
 
-***** Screengrab of REW Bass bin measurement setup and measurement.
+***** Screengrab of REW Bass bin measurement setup and measurement. pic to be updated!!!!
 ![alt text](<Images/REW Make a measurement config.jpg>)
 
 
 ![alt text](<Images/Dec 1 2 UL5 Blank 92db 20-500Hz.jpg>)
  Dec 1 2 UL5 Blank Bass 20-500Hz 92db.jpg
 
-The red trace is the SPL and the peaks at 32Hz and 43Hz are room resonances. The peak at 140Hz is a design quirk of the folded horn.
+The red trace is the SPL and the peaks at 32Hz and 43Hz are room resonances. The peak at 140Hz is a design quirk of the folded horn. Phase will be better once the sweep goes to higher a frequency.
 
 This procedure is repeated for the mid and hi, altering the frequency sweep to 200-5,000 Hz for mid and 2,000 to 20,000 Hz for hi and unmuting the appropriate "destination" channel in the Mixer. In my setup with the Motu Ultralight Mk5, bass is destination 2 & 3, mid 4 & 5 and hi 6 & 7, even numbers are the Left channel, odd numbers are the Right channel. After changing the unmuted destination, don't forget to "Apply to DSP".
  
@@ -31,9 +31,15 @@ I have a folder called REW Measurements where I keep measurements etc filed and 
 
 ### Calculate EQ and save EQ filters.
 
-In REW with the Bass measurement displayed, click the EQ tab to display the EQ function screen, I usually click the "Fit to Data" box (top of screen, 4 arrows) and then work down the Target Settings to set the Target Level (I normally click "Calculate target level from response", then in the Filter Tasks set the range leaving the Boost at default, and set the Flatness Target.
+In REW with the Bass measurement displayed, click the EQ tab to display the EQ function screen, I usually click the "Fit to Data" box (top of screen, 4 arrows). 
 
-Then click the "Calculate target level from response" to generate the filters. Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name. Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog tol save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
+First confirm that the EQ: is set to CamillaDSP at the top of the parameters. REW has CamillaDSP support builtin, up to 20 filters and correct .yaml format for direct import using the CamillaDSP GUI into the nominated config file. 
+
+Then work down the Target Settings to set the Target Level (I normally click "Calculate target level from response").
+
+In the Filter Tasks set the range leaving the Boost at default, and set the Flatness Target.Then click the "Match response to target" to generate the filters. 
+
+Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name. Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog tol save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
 
 This screengrab shows the REW EQ screen Target Settings and Filter Tasks panels with filters calculated for the Bass measurement and the popup input for the filter labels. 
 
@@ -55,11 +61,10 @@ It is these filters and the Pipeline for Bass that CamillaDSP will import to the
 ### Import filters into CamillaDSP
 With CamillaDSP GUI being accessed by a browser it will use the PC's file system to import filters. So, using the browser on the same PC as where REW is running makes it simple to import the filters.
 
-In the CamillaDSP GUI I select the Config file that I want to import the filters to. I have a Config based on Michaels template for a Motu Ultralight Mk 5 (UL5) that I will use. The config contains a gain filter and a mixer. 
+In the CamillaDSP GUI I select the Config file that I want to import the filters into. I have a Config based on Michaels template for a Motu Ultralight Mk 5 (UL5) that I will use. The config contains a gain filter and a mixer. 
 ![alt text](<UL5 Analog Blank pipeline.jpg>)
 
-In CamillaDSP GUI select the File tab, and click the Import Config box - the screengrab shows the popup dialog with the mouse in the Import Config box, the Configs section shows the operating config with a green box around the star and the green tick indicates the config in the GUI. 
-This screengrab shows the popup info with the mouse pointer in the CamillaDSP Config box. 
+In CamillaDSP GUI select the File tab, and click the Import Config box - this screengrab shows the popup dialog with the mouse in the Import Config box, the Configs section shows the operating config with a green box around the star and the green tick indicates the config in the GUI. 
 ![alt text](<UL5 Analog Blank select file import config.jpg>)
  
  Having clicked Import Config we have a choice, we can select an existing config file or by clicking the CamillaDSP Config box we get a file selection screen.
@@ -77,7 +82,7 @@ and the filters and pipeline is displayed, click the button to select. Note the 
 After saving, the channel number should be changed. As I want these filters for left and right channels I will import them by clicking the "Import" box and then assign the pipeline to the left channel , then import only the pipeline steps by clicking the "tick" next to "Filters" which will change the "tick" to "-" , then assign the pipeline steps to the right channel. The red triangle "!" is warning that these filters already exist and will be overwritten.
  
 Here is the Pipeline plot after the first import showing all the EQ filters for Channel 2.
- ![alt text](<UL5 Analog Blank pipeline after import.jpg>)
+![alt text](<UL5 Analog Blank pipeline after import.jpg>)
 
 After importing the pipeline steps a second time.
 ![alt text](<UL5 Analog Blank pipeline after import of both channels.jpg>)
