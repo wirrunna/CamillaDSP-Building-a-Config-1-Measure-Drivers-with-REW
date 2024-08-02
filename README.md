@@ -53,12 +53,12 @@ It is these filters and the Pipeline for Bass that CamillaDSP will import to the
 
 
 ### Import filters into CamillaDSP
-With CamillaDSP GUI being accessed by a browser it will use the PC's file system to import filters.
+With CamillaDSP GUI being accessed by a browser it will use the PC's file system to import filters. So, using the browser on the same PC as where REW is running makes it simple to import the filters.
 
 In the CamillaDSP GUI I select the Config file that I want to import the filters to. I have a Config based on Michaels template for a Motu Ultralight Mk 5 (UL5) that I will use. The config contains a gain filter and a mixer. 
 ![alt text](<UL5 Analog Blank pipeline.jpg>)
 
-Select the File tab, and click the Import Config box - the screengrab shows the popup dialog with the mouse in the Import Config box, the Configs section shows the operating config with a green box around the star and the green tick indicates the config in the GUI. 
+In CamillaDSP GUI select the File tab, and click the Import Config box - the screengrab shows the popup dialog with the mouse in the Import Config box, the Configs section shows the operating config with a green box around the star and the green tick indicates the config in the GUI. 
 This screengrab shows the popup info with the mouse pointer in the CamillaDSP Config box. 
 ![alt text](<UL5 Analog Blank select file import config.jpg>)
  
@@ -93,5 +93,5 @@ Here is the pipeline showing each biquad.
 T28 Biquads pipeline expanded.jpg
 
 This shows the pipeline with biquads collapsed.
-![](<T28 Biquads pipeline collapsed.jpg>)
+![alt text](<Images/T28 Biquads pipeline collapsed.jpg>)
  T28 Biquads pipeline collapsed.jpg
