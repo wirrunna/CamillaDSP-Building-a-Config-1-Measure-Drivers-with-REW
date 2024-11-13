@@ -105,3 +105,6 @@ T28 Biquads pipeline expanded.jpg
 This shows the pipeline with biquads collapsed.
 ![alt text](<Images/T28 Biquads pipeline collapsed.jpg>)
  T28 Biquads pipeline collapsed.jpg
+
+Next is to build thecrossovers -
+https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
