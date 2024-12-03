@@ -39,7 +39,7 @@ Then work down the Target Settings to set the Target Level (I normally click "Ca
 
 In the Filter Tasks set the range leaving the Boost at default, and set the Flatness Target.Then click the "Match response to target" to generate the filters. 
 
-Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name for the group of filters and a second popup for the channel number in the pipeline (I usually just put 0 for the channel and change to the coorect channel when building the pipeline). Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog to save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
+Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name for the group of filters and a second popup for the channel number in the pipeline (I usually just put 0 for the channel and change to the correct channel when building the pipeline). Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog to save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
 
 This screengrab shows the REW EQ screen Target Settings and Filter Tasks panels with filters calculated for the Bass measurement and the popup input for the filter labels. 
 
