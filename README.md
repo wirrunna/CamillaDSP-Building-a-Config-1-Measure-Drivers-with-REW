@@ -1,32 +1,30 @@
 # CamillaDSP-Building-a-Config-1-Measure-Drivers-with-REW
-## 1. Measure drivers with REW and useg REW EQ to flatten the SPL creating Biquad (IIR) filters for each driver, then import the BIQUADs into CamillaDSP and measure the results.
+## 1. Measure drivers with REW and use REW EQ to flatten the SPL creating Biquad (IIR) filters for each driver, then import the BIQUADs into CamillaDSP and measure the results.
 
 ### REW SPL measuring.
 
-First I set the SPL to about 90db. This is a K-Horn and needs to breathe. This level is also good to find various room rattles and stop them before they interfere with the measurements.
+REW setup is detailed in https://github.com/wirrunna/CamillaDSP-Building-a-Config
 
-***** Screengrab of REW Bass bin measurement setup and measurement. pic to be updated!!!!
-![alt text](<Images/REW Make a measurement config.jpg>)
+First I set the SPL to about 80db. This is a K-Horn and needs to breathe. This level is also good to find various room rattles and stop them before they interfere with the measurements.
 
-
-![alt text](<Images/Dec 1 2 UL5 Blank 92db 20-500Hz.jpg>)
- Dec 1 2 UL5 Blank Bass 20-500Hz 92db.jpg
+![alt text](<Images/R 1_02_25 1_00 PM 2 80db Gin 96k in UL5 Blank 20-700.mdat.jpg>)
+R 1_02_25 1_00 PM 2 80db Gin 96k in UL5 Blank 20-700.mdat.jpg
 
 The red trace is the SPL and the peaks at 32Hz and 43Hz are room resonances. The peak at 140Hz is a design quirk of the folded horn. Phase will be better once the sweep goes to higher a frequency.
+With REW V5.40 a right click will display the pop up panel to allow various common actions to be performed on the measurement.
 
-This procedure is repeated for the mid and hi, altering the frequency sweep to 200-5,000 Hz for mid and 2,000 to 20,000 Hz for hi and unmuting the appropriate "destination" channel in the Mixer. In my setup with the Motu Ultralight Mk5, bass is destination 2 & 3, mid 4 & 5 and hi 6 & 7, even numbers are the Left channel, odd numbers are the Right channel. After changing the unmuted destination, don't forget to "Apply to DSP".
+This procedure is repeated for the mid and hi, altering the frequency sweep to 200-7,000 Hz for mid and 2,000 to 20,000 Hz for hi and unmuting the appropriate "destination" channel in the Mixer. In my setup with the Motu Ultralight Mk5, bass is destination 2 & 3, mid 4 & 5 and hi 6 & 7, even numbers are the Left channel, odd numbers are the Right channel. After changing the unmuted destination, don't forget to "Apply to DSP".
  
 
 
 This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to differing driver sensitivity and  different amplifiers. Easy to flatten in a DSP, good luck in a passive XO.
-![alt text](<Images/Dec 1 Bass Mid Hi Raw.jpg>)
-
+![alt text](<Images/REW V5.40 Bass Mid Hi EQ XO.jpg>)
 
 ### A note about naming REW files.
 
-First off, there will be a lot of measurement files. The file name for the Bass measurement above is Dec 1 2 UL5 Blank 92db 20-500Hz RAW.mdat, a descriptor (rather than just an identifier) containing the measurement session date, measurement number in the session, CamillaDSP config identifier and measurement settings.  I keep an A4 note book where I write out what the measuring session is trying to achieve and the variables I am testing - new filters, different XO cut offs, rePhase Phase Fixes etc. and make a note of each measurement so that the file from REW can be related to a particular measurement session.
+First off, there will be a lot of measurement files. The file name for the Bass measurement above is R 1_02_25 1_00 PM 2 80db Gin 96k in UL5 Blank 20-700.mdat, a descriptor (rather than just an identifier) containing the measurement session date, measurement number in the session, CamillaDSP config identifier and measurement settings.  I keep an A4 note book where I write out what the measuring session is trying to achieve and the variables I am testing - new filters, different XO cut offs, rePhase Phase Fixes etc. and make a note of each measurement so that the file from REW can be related to a particular measurement session.
 I have a folder called REW Measurements where I keep measurements etc filed and retrieveable.
-![alt text](<Images/REW folder for measurements.jpg>) 
+![alt text](<Images/Folder for REW measurements.jpg>)
 
 
 ### Calculate EQ and save EQ filters.
@@ -41,13 +39,15 @@ In the Filter Tasks set the range leaving the Boost at default, and set the Flat
 
 Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name for the group of filters and a second popup for the channel number in the pipeline (I usually just put 0 for the channel and change to the correct channel when building the pipeline). Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog to save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
 
-This screengrab shows the REW EQ screen Target Settings and Filter Tasks panels with filters calculated for the Bass measurement and the popup input for the filter labels. 
+These screengrabs show the REW EQ screen Target Settings and Filter Tasks panels with filters calculated for the Bass measurement and the save file dialog.
+![alt text](<Images/REW EQ screen for Bass showing save dialog - ask for label.jpg>)
+REW EQ screen for Bass showing save dialog - ask for label.jpg
+![alt text](<Images/REW EQ screen for Bass showing save dialog - ask for channel.jpg>)
+REW EQ screen for Bass showing save dialog - ask for channel.jpg
+![alt text](<Images/REW EQ screen for Bass showing save dialog - save .yaml file.jpg>)
+REW EQ screen for Bass showing save dialog - save .yaml file.jpg
 
- ![alt text](<Images/REW Bass EQ screen showing save dialog.jpg>)
 
-Here is the screengrab of the save filters
-
-***** need jpg
 
 Here is a partial listing of the filters generated by REW
  ![alt text](<Images/EQ Dec 1 2 Bass Filters in yaml file.jpg>)
