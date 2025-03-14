@@ -17,7 +17,7 @@ This procedure is repeated for the mid and hi, altering the frequency sweep to 2
  
 
 
-This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to differing driver sensitivity, different amplifiers and different EQ settings. Easy to flatten in a DSP, good luck in a passive XO.
+This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to differing driver sensitivity and different amplifiers. Easy to flatten in a DSP, good luck in a passive XO.
 ![alt text](<Images/REW V5.40 Bass Mid Hi raw.jpg>)
 REW V5.40 Bass Mid Hi raw.jpg
 
