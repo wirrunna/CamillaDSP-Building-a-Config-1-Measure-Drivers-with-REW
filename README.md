@@ -83,8 +83,7 @@ GUI Gin UL5 Blank select file import config.jpg
 Gin UL5 Blank select file import config showing choices.jpg
 
 Having clicked the CamillaDSP Config box, select the EQ file output by REW.
-![alt text](<Images/Gin UL5 Blank select config to be imported.jpg>)
-Gin UL5 Blank select config to be imported.jpg
+![alt text](<Images/Gin UL5 Blank select config to be imported.jpg>)Gin UL5 Blank select config to be imported.jpg
  
 and the filters and pipeline is displayed, click the button to select. Note the pipeline shows "0" which is the channel the filters will be assigned to and an "i" in a circle, hovering the mouse over the "i" will display the pipeline steps. 
 ![alt text](<Images/Gin UL5 Blank select what to import.jpg>)
@@ -107,9 +106,9 @@ Gin UL5 Pipeline after Bass EQ filters imported.jpg
 
 
 This process is repeated for Mid and High.
-Here is a rather busy REW All SPL measurement showing RAW and EQd for each driver.
-![alt text](<Images/REW V5.40 Bass Mid Hi raw EQ.jpg>)
-REW V5.40 Bass Mid Hi raw EQ.jpg
+Here is a REW All SPL measurement showing EQd for each driver.
+![alt text](<Images/REW V5.40 Bass Mid Hi EQ.jpg>)
+REW V5.40 Bass Mid Hi EQ.jpg
 
 Here is the pipeline showing each biquad.
 ![alt text](<Images/Gin UL5 Bass Mid Treble EQ Filters expanded.jpg>)
