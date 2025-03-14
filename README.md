@@ -17,7 +17,7 @@ This procedure is repeated for the mid and hi, altering the frequency sweep to 2
  
 
 
-This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to differing driver sensitivity and  different amplifiers. Easy to flatten in a DSP, good luck in a passive XO.
+This graph shows the three drivers raw measurement at the same volume setting. The SPL difference is due to differing driver sensitivity, different amplifiers and different EQ settings. Easy to flatten in a DSP, good luck in a passive XO.
 ![alt text](<Images/REW V5.40 Bass Mid Hi EQ XO.jpg>)
 
 ### A note about naming REW files.
@@ -40,7 +40,9 @@ In the Filter Tasks set the range leaving the Boost at default, and set the Flat
 Review the calculated filters, then click "Save filter settings to YAML file" and fill in the dialog popup where you can set the filter name for the group of filters and a second popup for the channel number in the pipeline (I usually just put 0 for the channel and change to the correct channel when building the pipeline). Again, the label is a descriptor showing the Bass measurement label and the filter task settings (Target Level, frequency spread and Flatness target) so that in later testing I can see what I was trying to do. REW will then popup a standard save file dialog to save the EQ Filters for CamillaDSP in the correct format for Biquad filters.
 
 These screengrabs show the REW EQ screen Target Settings and Filter Tasks panels with filters calculated for the Bass measurement and the save file dialog.
+Passive crossovers rarely attempt to equalise the SPL for a driver, but with an active crossover flattening the SPL is easy, as is extending the low end by reducing the output to that SPL of the lowest response. Note the "predicted" response.
 ![alt text](<Images/REW EQ screen for Bass showing save dialog - ask for label.jpg>)
+
 REW EQ screen for Bass showing save dialog - ask for label.jpg
 ![alt text](<Images/REW EQ screen for Bass showing save dialog - ask for channel.jpg>)
 REW EQ screen for Bass showing save dialog - ask for channel.jpg
@@ -63,45 +65,58 @@ It is these filters and the Pipeline for Bass that CamillaDSP will import to the
 ### Import filters into CamillaDSP
 With CamillaDSP GUI being accessed by a browser it will use the PC's file system to import filters. So, using the browser on the same PC as where REW is running makes it simple to import the filters.
 
-In the CamillaDSP GUI I select the Config file that I want to import the filters into. I have a Config based on Michaels template for a Motu Ultralight Mk 5 (UL5) that I will use. The config contains a gain filter and a mixer. 
-![alt text](<Images/UL5 Analog Blank pipeline.jpg>)
+In the CamillaDSP GUI I select the Config file that I want to import the filters into. I have a Config based on Michaels template for a Motu Ultralight Mk 5 (UL5) that I will use. The config only has a mixer. 
+![alt text](Images/Gin_96k_UL5_Blank.jpg)
+Gin_96k_UL5_Blank.jpg
+
+Here is a screengrab showing the mixer and labels for the outputs.
+![alt text](<Images/UL5 Mixer showing labels.jpg>)
+UL5 Mixer showing labels.jpg
 
 In CamillaDSP GUI select the File tab, and click the Import Config box - this screengrab shows the popup dialog with the mouse in the Import Config box, the Configs section shows the operating config with a green box around the star and the green tick indicates the config in the GUI. 
-![alt text](<Images/UL5 Analog Blank select file import config.jpg>)
- 
- Having clicked Import Config we have a choice, we can select an existing config file or by clicking the CamillaDSP Config box we get a file selection screen.
-![alt text](<Images/UL5 Analog Blank select file import config showing choices.jpg>)
+![alt text](<Images/GUI Gin UL5 Blank select file import config.jpg>)
+GUI Gin UL5 Blank select file import config.jpg
 
+ Having clicked Import Config we have a choice, we can select an existing config file or by clicking the CamillaDSP Config box we get a file selection screen.
+![alt text](<Images/Gin UL5 Blank select file import config showing choices.jpg>)
+Gin UL5 Blank select file import config showing choices.jpg
 
 Having clicked the CamillaDSP Config box, select the EQ file output by REW.
-![alt text](<Images/UL5 Analog Blank select config to be imported.jpg>)
-
+![alt text](<Images/Gin UL5 Blank select config to be imported.jpg>)
+Gin UL5 Blank select config to be imported.jpg
  
 and the filters and pipeline is displayed, click the button to select. Note the pipeline shows "0" which is the channel the filters will be assigned to and an "i" in a circle, hovering the mouse over the "i" will display the pipeline steps. 
-![alt text](<Images/UL5 Analog Blank select what to import.jpg>)
+![alt text](<Images/Gin UL5 Blank select what to import.jpg>)
+Gin UL5 Blank select what to import.jpg
+
+CamillaDSP will display a successful import screen
+![alt text](<Images/Gin UL5 Blank import successful.jpg>)
+Gin UL5 Blank import successful.jpg
+close this message and click Save to File.
 
 
-After saving, the channel number should be changed. As I want these filters for left and right channels I will import them by clicking the "Import" box and then assign the pipeline to the left channel , then import only the pipeline steps by clicking the "tick" next to "Filters" which will change the "tick" to "-" , then assign the pipeline steps to the right channel. The red triangle "!" is warning that these filters already exist and will be overwritten.
- 
-Here is the Pipeline plot after the first import showing all the EQ filters for Channel 2.
-![alt text](<Images/UL5 Analog Blank pipeline after import.jpg>)
+After saving, the channel number should be changed. As I want these filters for left and right channels I will click the Pipeline tab and allocate the filters to the appropriate channels. 
+![alt text](<Images/Gin UL5 allocate filters to channels.jpg>)
+Gin UL5 allocate filters to channels.jpg
 
-After importing the pipeline steps a second time.
-![alt text](<Images/UL5 Analog Blank pipeline after import of both channels.jpg>)
- 
+
+Here is the Pipeline plot after the import showing all the EQ filters.
+![alt text](<Images/Gin UL5 Pipeline after Bass EQ filters imported.jpg>)
+Gin UL5 Pipeline after Bass EQ filters imported.jpg
+
 
 This process is repeated for Mid and High.
-Here is a rather busy All SPL measurement showing RAW, EQd with XO for each driver.
-![alt text](<Images/RAW and EQd for Bass Mid Hi.jpg>) 
-RAW and EQd for Bass Mid Hi.jpg
+Here is a rather busy REW All SPL measurement showing RAW and EQd for each driver.
+![alt text](<Images/REW V5.40 Bass Mid Hi raw EQ.jpg>)
+REW V5.40 Bass Mid Hi raw EQ.jpg
 
 Here is the pipeline showing each biquad.
-![alt text](<Images/T 28 Biquads expanded pipeline.jpg>) 
-T28 Biquads pipeline expanded.jpg
+![alt text](<Images/Gin UL5 Bass Mid Treble EQ Filters expanded.jpg>)
+Gin UL5 Bass Mid Treble EQ Filters expanded.jpg
 
 This shows the pipeline with biquads collapsed.
-![alt text](<Images/T28 Biquads pipeline collapsed.jpg>)
- T28 Biquads pipeline collapsed.jpg
+![alt text](<Images/Gin UL5 Bass Mid Treble EQ Filters collapsed.jpg>)
+Gin UL5 Bass Mid Treble EQ Filters collapsed.jpg
 
 Next is to build thecrossovers -
 https://github.com/wirrunna/CamillaDSP-Building-a-Config-2-Create-Linear-Phase-XOs
